@@ -13,27 +13,27 @@ namespace WpfApplication3
         private bool?[,] storege = new bool?[Hight, Width];
 
 
-        public IEnumerable<Tuple<int, int>> GetNeighbors(Tuple<int, int> cell)
+        public IEnumerable<Cell> GetNeighbors(Cell cell)
         {
-            var x = cell.Item1;
-            var y = cell.Item2;
+            var x = cell.X;
+            var y = cell.Y;
 
-            if (cell.Item1 > 1)
-                yield return new Tuple<int, int>(x - 1, y);
+            if (cell.X > 1)
+                yield return Cell.Take(x - 1, y);
 
-            if (cell.Item1 < Hight)
-                yield return new Tuple<int, int>(x + 1, y);
+            if (cell.Y < Hight)
+                yield return Cell.Take(x + 1, y);
         }
 
 
-        public void SetCellValue(Tuple<int, int> cell, bool value)
+        public void SetCellValue(Cell cell, bool value)
         {
-            storege[cell.Item1, cell.Item2] = value;
+            storege[cell.X, cell.Y] = value;
         }
 
-        public bool? GetCellValue(Tuple<int, int> cell)
+        public bool? GetCellValue(Cell cell)
         {
-            return storege[cell.Item1, cell.Item2];
+            return storege[cell.X, cell.Y];
         }
     }
 }

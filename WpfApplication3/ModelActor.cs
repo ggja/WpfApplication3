@@ -37,12 +37,12 @@ namespace WpfApplication3
 
         public class PushCellMessage
         {
-            public Tuple<int, int> Cell { get; }
-            public PushCellMessage(Tuple<int, int> cell)
+            public Cell Cell { get; }
+            public PushCellMessage(Cell cell)
             {
-                Cell = cell;
+                this.Cell = cell;
             }
-            public static PushCellMessage CreateMessage(Tuple<int, int> cell)
+            public static PushCellMessage CreateMessage(Cell cell)
             {
                 return new PushCellMessage(cell);
             }
@@ -51,25 +51,25 @@ namespace WpfApplication3
         public class SetMessage
         {
             public bool Value { get; }
-            public Tuple<int, int> Cell { get;}
-            public SetMessage(Tuple<int, int> cell, bool value)
+            public Cell Cell { get;}
+            public SetMessage(Cell cell, bool value)
             {
                 Value = value;
-                Cell = cell;
+                this.Cell = cell;
             }
         }
 
 
         public class PushNeighborsMessage
         {
-            public Tuple<int,int> Cell { get; }
+            public Cell Cell { get; }
 
-            public PushNeighborsMessage(Tuple<int, int> cell)
+            public PushNeighborsMessage(Cell cell)
             {
-                Cell = cell;
+               this.Cell = cell;
             }
 
-            public static PushNeighborsMessage CreateMessage(Tuple<int, int> cell)
+            public static PushNeighborsMessage CreateMessage(Cell cell)
             {
                 return new PushNeighborsMessage(cell);
             }
